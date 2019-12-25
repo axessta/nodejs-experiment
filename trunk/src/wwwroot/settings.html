@@ -1,0 +1,328 @@
+<!-- rmhome, index.html, Jake Deery, 2018 -->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>RMHome | An interactive homepage by Jake Deery</title>
+		<meta charset="utf-8" />
+		<!-- css files -->
+		<link rel="stylesheet" href="include/css/libs/fontawesome.all.min.css" />
+		<link rel="stylesheet" href="include/css/libs/bootstrap.min.css" />
+		<link rel="stylesheet" href="include/css/main.css" /><!-- my css -->
+	</head>
+	<body>
+		<div id="top">
+			<!-- top anchor -->
+		</div>
+		<main id="mainWindow">
+			<nav id="navbarWindow" class="navbar navbar-expand-lg navbar-dark fixed-top">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link navbar-brand" href="./"><i class="fas fa-home"></i> RMHome <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#top"><i class="fas fa-arrow-up"></i> Go to Top</a>
+					</li>
+				</ul>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+					</li>
+				</ul>
+			</nav>
+			<div id="headerWindow" class="jumbotron jumbotron-fluid">
+				<p class="h3">&nbsp;</p><!-- makes some clearspace at the top of the jumbotron. looks better-->
+				<div class="container">
+					<h1 class="display-2">Settings</h1>
+				</div>
+			</div>
+			<div id="contentWindow" class="container-fluid">
+				<!-- Modal -->
+				<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="deleteModalLabel">Delete user data</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								Are you sure you wish to delete your personal user data completely?
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">No, thanks</button>
+								<button id="doDelete" type="button" class="btn btn-danger" data-dismiss="modal"">Yes! Do it!</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<!-- general settings -->
+					<div id="general" class="col-sm-6">
+						<div class="card">
+							<div class="card-header">
+								General settings
+							</div>
+							<div class="card-body">
+								<form id="generalForm">
+									<div class="form-group">
+										<label for="userID">Your UID</label>
+										<input type="text" class="form-control" id="userID" disabled="disabled">
+									</div>
+									<div class="form-group">
+										<label for="nameInput">Full name</label>
+										<input type="text" class="form-control" id="nameInput" required="required" placeholder="Enter name">
+									</div>
+									<div class="form-group">
+										<label for="genderSelect">Gender</label>
+										<select class="form-control" id="genderSelect">
+											<option>Male</option>
+											<option>Female</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="themeChoice">Theme choice</label>
+										<select class="form-control" id="themeChoice">
+											<option>Neon</option>
+											<option>Nature</option>
+											<option>Space</option>
+											<option>Vortex</option>
+											<option>Abyss</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<input type="submit" class="btn btn-dark" id="generalSave" value="Save">
+										<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete user data</button>&nbsp;
+										<i id="generalOk" class="fas fa-check okCheck" style="display: none"></i>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<!-- widget1 settings -->
+					<div id="widget1" class="col-sm-6">
+						<div class="card">
+							<div class="card-header">
+								Clock settings
+							</div>
+							<div class="card-body">
+								<form id="widget1Form">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" id="widget1Toggle">
+										<label for="widget1Toggle">Enabled?</label>
+									</div>
+									<div class="form-group">
+										<label for="timezoneOffset">Timezone offset (where 0 is UTC)</label>
+										<select class="form-control" id="timezoneOffset">
+											<option>12</option>
+											<option>11</option>
+											<option>10</option>
+											<option>9</option>
+											<option>8</option>
+											<option>7</option>
+											<option>6</option>
+											<option>5</option>
+											<option>4</option>
+											<option>3</option>
+											<option>2</option>
+											<option>1</option>
+											<option selected="selected">0</option>
+											<option>-1</option>
+											<option>-2</option>
+											<option>-3</option>
+											<option>-4</option>
+											<option>-5</option>
+											<option>-6</option>
+											<option>-7</option>
+											<option>-8</option>
+											<option>-9</option>
+											<option>-10</option>
+											<option>-11</option>
+											<option>-12</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<input type="submit" class="btn btn-dark" id="widget1Save" value="Save">&nbsp;
+										<i id="widget1Ok" class="fas fa-check okCheck" style="display: none"></i>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<!-- widget2 settings -->
+					<div id="widget2" class="col-sm-6">
+						<div class="card">
+							<div class="card-header">
+								Notepad settings
+							</div>
+							<div class="card-body">
+								<form id="widget2Form">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" id="widget2Toggle">
+										<label for="widget2Toggle">Enabled?</label>
+									</div>
+									<div class="form-group">
+										<label for="notesColour">Notepad colour</label>
+										<select class="form-control" id="notesColour">
+											<option>White</option><!-- rgb(255, 255, 255) -->
+											<option>Waterspout</option> <!-- rgb(169, 248, 251) -->
+											<option>Tea green</option> <!-- rgb(204, 252, 203) -->
+											<option>Pink lavender</option><!-- rgb(217, 184, 196) -->
+											<option>Gargoyle Gas</option><!-- rgb(253, 231, 76) -->
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="notesFont">Notepad font</label>
+										<select class="form-control" id="notesFont">
+											<option>Serif</option>
+											<option>Sans-serif</option>
+											<option>Monospace</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="notesStyle">Notepad text style</label>
+										<select class="form-control" id="notesStyle">
+											<option>Normal</option>
+											<option>Italic</option>
+										</select>
+									</div>
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" id="notesBold">
+										<label for="notesBold">Text style: bold?</label>
+									</div>
+									<div class="form-group">
+										<input type="submit" class="btn btn-dark" id="widget2Save" value="Save">&nbsp;
+										<i id="widget2_setOk" class="fas fa-check okCheck" style="display: none"></i>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<!-- widget3 settings -->
+					<div id="widget3" class="col-sm-6">
+						<div class="card">
+							<div class="card-header">
+								Top News settings
+							</div>
+							<div class="card-body">
+								<form id="widget3Form">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" id="widget3Toggle">
+										<label for="widget3Toggle">Enabled?</label>
+									</div>
+									<div class="form-group">
+										<label for="newsSource">News source</label>
+										<select class="form-control" id="newsSource">
+											<option>BBC News</option>
+											<option>The Guardian (UK)</option>
+											<option>RT</option>
+											<option>Fox News</option>
+											<option>Independent</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<input type="submit" class="btn btn-dark" id="widget3Save" value="Save">&nbsp;
+										<i id="widget3Ok" class="fas fa-check okCheck" style="display: none"></i>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<!-- widget4 settings -->
+					<div id="widget4" class="col-sm-6">
+						<div class="card">
+							<div class="card-header">
+								Song of the Day settings
+							</div>
+							<div class="card-body">
+								<form id="widget4Form">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" id="widget4Toggle">
+										<label for="widget4Toggle">Enabled?</label>
+									</div>
+									<div class="form-group">
+										<input type="submit" class="btn btn-dark" id="widget4Save" value="Save">&nbsp;
+										<i id="widget4Ok" class="fas fa-check okCheck" style="display: none"></i>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<!-- widget5 settings -->
+					<div id="widget5" class="col-sm-6">
+						<div class="card">
+							<div class="card-header">
+								Countdown settings
+							</div>
+							<div class="card-body">
+								<form id="widget5Form">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" id="widget5Toggle">
+										<label for="widget5Toggle">Enabled?</label>
+									</div>
+									<div class="form-group">
+										<label for="countdownOffset">Timezone offset (where 0 is UTC)</label>
+										<select class="form-control" id="countdownOffset">
+											<option>12</option>
+											<option>11</option>
+											<option>10</option>
+											<option>9</option>
+											<option>8</option>
+											<option>7</option>
+											<option>6</option>
+											<option>5</option>
+											<option>4</option>
+											<option>3</option>
+											<option>2</option>
+											<option>1</option>
+											<option selected="selected">0</option>
+											<option>-1</option>
+											<option>-2</option>
+											<option>-3</option>
+											<option>-4</option>
+											<option>-5</option>
+											<option>-6</option>
+											<option>-7</option>
+											<option>-8</option>
+											<option>-9</option>
+											<option>-10</option>
+											<option>-11</option>
+											<option>-12</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="countdownDate">Target date</label>
+										<input type="date" class="form-control" id="countdownDate" required="required" placeholder="Enter date">
+									</div>
+									<div class="form-group">
+										<label for="countdownDate">Target time</label>
+										<input type="time" class="form-control" id="countdownTime" required="required" placeholder="Enter time">
+									</div>
+									<div class="form-group">
+										<input type="submit" class="btn btn-dark" id="widget5Save" value="Save">&nbsp;
+										<i id="widget5Ok" class="fas fa-check okCheck" style="display: none"></i>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer">
+				<div class="container">
+					<hr class="my-5" />
+					<span class="text-muted">&copy; Jake Deery, 2018</span><br />
+					&nbsp;
+				</div>
+			</div>
+		</main>
+		<!-- js files -->
+		<script src="include/js/libs/jquery-3.3.1.min.js"></script>
+		<script src="include/js/libs/popper.min.js"></script>
+		<script src="include/js/libs/bootstrap.min.js"></script>
+		<script src="include/js/libs/js-sha256-min.js"></script>
+		<script src="include/js/misc.js"></script><!-- my js -->
+		<script src="include/js/client.js"></script>
+		<script src="include/js/settings.js"></script>
+	</body>
+</html>
