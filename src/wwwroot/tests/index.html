@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- metadata -->
+		<meta charset="utf-8" />
+		<title>QUnit for RMHome</title>
+		<!-- css: main libs-->
+		<link rel="stylesheet" href="../include/css/libs/bootstrap.min.css">
+		<link rel="stylesheet" href="../include/css/libs/fontawesome.all.min.css">
+		<!-- css: qunit libs-->
+		<link rel="stylesheet" href="include/css/libs/qunit-2.8.0.css" />
+		<!-- css: mine -->
+		<link rel="stylesheet" href="include/css/tests.css" />
+	</head>
+	<body>
+		<div class="container-fluid">
+			<h1 class="display-4">QUnit tests for RMHome</h1>
+			<p><strong>UID: </strong> <span id="uidSpan"></span></p>
+			<hr class="my-1" />
+			<p><strong>Widget values: </strong></p>
+			<p>Clock widget value: <span id="widget1Val">undefined</span></p>
+			<p>Notepad widget value: <span id="widget2Val">undefined</span></p>
+			<p>News widget value: <span id="widget3Val">undefined</span></p>
+			<p>SotD widget value: <span id="widget4Val">undefined</span></p>
+			<p>Countdown widget value: <span id="widget5Val">undefined</span></p>
+			<hr class="my-1" />
+			<p><strong>WebSocket status(es): </strong></p>
+			<p>Init: <span id="initP">Waiting for init . . . </span></p>
+			<p>Notepad: <span id="update_widget2_hpP">Waiting for widget2_update_hp . . . </span></p>
+			<hr class="my-1" />
+			<p><strong>Clock widget: </strong></p>
+			<p id="clock">[Placeholder]</p>
+			<hr class="my-1" />
+			<p><strong>News widget: </strong></p>
+			<p id="newsJson"></p>
+			<hr class="my-1" />
+			<p><strong>Background test: </strong></p>
+			<div id="bgDiv" style="height:185px;width:685px;background-image:url('../res/bitmaps/_neon.jpg')"></div>
+			<hr class="my-5" />
+		</div>
+		<div class="container-fluid">
+			<div id="qunit"></div>
+			<div id="qunit-fixture"></div>
+			<p>&nbsp;</p>
+		</div>
+		<!-- js: main libs -->
+		<script src="../include/js/libs/jquery-3.3.1.min.js"></script>
+		<script src="../include/js/libs/popper.min.js"></script>
+		<script src="../include/js/libs/js-sha256-min.js"></script>
+		<script src="../include/js/libs/bootstrap.min.js"></script>
+		<!-- js: qunit libs -->
+		<script src="include/js/libs/qunit-2.8.0.js"></script>
+		<!-- js: mine -->
+		<script src="../include/js/misc.js"></script>
+		<script src="../include/js/client.js"></script>
+		<script src="include/js/tests.js"></script>
+	</body>
+</html>
